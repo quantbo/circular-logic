@@ -1,0 +1,39 @@
+body {
+/*  width: 60%;*/
+}
+p {
+  font-size: 1.1em;
+}
+
+path {
+  stroke: black;
+  fill:none;
+}
+svg {
+  background-color: antiquewhite;
+  font-family: serif;
+}
+textPath {
+  font-size: 10em;
+}
+.example {
+  margin-left: 2em;
+  margin-right: 2em;
+}
+#discuss {
+  margin: auto;
+  margin-top: 1em;
+  font-size: 1.2em;
+/*  width: 80%;*/
+}
+#guidecircle {
+  fill: none;
+  stroke: none;
+}
+#guideline {
+  stroke: none;
+  stroke-dasharray: 4;
+}
+#master {
+  text-align: center;
+}

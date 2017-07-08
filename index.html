@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Circular logic</title>
+    
+   <!-- Google font(s) -->
+   <!-- Must precede 'index.css'. -->
+   <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'> <!-- Normal text. -->
+   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'> <!-- Headers. -->
+    
+    <link rel=stylesheet type="text/css" href="index.css"/>
+    <link rel=stylesheet type="text/css" href="project.css"/>
+  </head>
+  <body>
+    <div id='master'>
+      <svg height='800' width='800'>
+        <defs>
+          <!-- These are the paths used by the textPath elements defind below. -->
+          <path id='circ_inner'/>
+          <path id='circ_outer'/>
+        </defs>
+        <!-- During development a guideline and guide circle are helpful. When not needed, set stroke: none.-->
+        <line id='guideline'/>
+        <circle id='guidecircle'/>
+        <!-- Exhibiting the following can be useful during development:
+        <use xlink:href='#circ_inner'/>
+        <use xlink:href='#circ_outer'/>
+        -->
+        <text>
+          <textPath id='inner' lengthAdjust='spacingAndGlyphs' xlink:href='#circ_inner'>This statement is false!</textPath>
+        </text>
+        <text>
+          <textPath id='outer' lengthAdjust='spacingAndGlyphs' xlink:href='#circ_outer'>This statement is false!</textPath>
+        </text>
+      </svg>
+    </div>
+    <div id='discuss'>
+      <h1>Circular logic</h1>
+      <p id='pub'>Published: 2017-07-08</p>
+      <h2>Browser issues</h2>
+      <p>The circular text at the top of the page is generated with the SVG textPath element. The length of the text is controlled with the textLength attribute. In the Chrome browser the circular text displays perfectly. As of the publication date textLength does not seem to be implemented, or implemented correctly, in Firefox or Edge. The result is a gap between the end of the sentence and its beginning. What is more, in Edge the text appears to slop a bit below the path it is meant to follow. Apparently, the SVG textPath technology is, as of this writing, on the bleeding edge (pun?). For best results view in Chrome.</p>
+      <h2>Liar's paradox</h2>
+      <p>The usual definition of "circular logic" is an argument that proves its conclusion by implicitly or explicitly assuming its conclusion. For example: "You should trust X because he is a good person." Given that a good person is trustworthy, this amounts to: "You should trust X because he is trustworthy." A non-circular argument might be: "You should trust X because he has references who will vouch for him."</p>
+      <p>The sentence in the graphic at the top of this page, the "liar's paradox", is a different and perhaps more interesting form of circular logic. If we begin by assuming the statement is true, then it is false, and if we begin by assuming it is false, then it is true. What is more, this alternation between true and false can continue indefinitely.</p>
+      <p>There is a discussion of the liar's paradox at <a href='https://en.wikipedia.org/wiki/Liar_paradox' target="_blank">Wikipedia</a>. My own interpretation of the liar's paradox is that its truth value is expressed by an infinite sequence extending in both directions:</p>
+      <pre>
+  ..., TRUE, FALSE, TRUE, FALSE, ...
+      </pre>
+      <p>The sequence must be infinite in both directions because there is no reason to prefer <code>TRUE</code> or <code>FALSE</code> to begin the sequence. Having the sequence extend indefinitely to the left spares us from having to arbitrarily begin the sequence with a particular truth value.</p>
+      <p>The truth value of a self-contradictory statement is like the position of a pendulum in a vacuum. The pendulum has no single position: It swings back and forth forever.</p>
+      <h2>Fuzzy logic</h2>
+      <p>The liar's paradox can be extended to fuzzy logic, a system wherein logical values can occur in the range <code>[0,&nbsp;1]</code>. The value 0 is the same as false; the value 1 is the same as true; and values in between are somewhat false and somewhat true. For example:</p>
+      <p class='example'>Question: "Is X trustworthy?"<br>Answer: "He is more trustworthy than not (with a truth value of 0.66)."</p>
+      <p>Moving to the liars paradox, the statement "This statement is 80% false" is, if accurate, 80% true, in which case it is 80% false, and so on.</p>
+      <p>The statement "This statement is 50% true" does not result in an infinite sequence because negating the statement does not change it. It is the only stable form of the liar's paradox.</p>
+      
+      <p id=copyright>Copyright (C) 2017, John Van Praag</p>
+    </div>
+  </body>
+  <script src="index.js"></script>
+</html>
